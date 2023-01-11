@@ -8,7 +8,7 @@ import NewsComp from "../components/News";
 export default function Home({ data, news }) {
   const stats = data.stats;
   return (
-    <div className="m-5 ">
+    <div className="md:m-5 ">
       <Head>
         <title>CryptoRite</title>
         <meta

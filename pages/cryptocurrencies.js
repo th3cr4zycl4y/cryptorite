@@ -15,20 +15,20 @@ const Cryptocurrencies = ({ data }) => {
   }, [data, search]);
 
   return (
-    <div className="min-h-[84vh] h-fit m-5">
+    <div className="min-h-[84vh] h-fit ">
       <Head>
         <title>Cryptocurrencies</title>
       </Head>
       <div>
         <div className="flex items-center justify-between">
-          <h2 className=" text-2xl font-bold text-gray-700">
+          <h2 className="text-lg font-bold text-gray-700 md:text-2xl">
             Cryptocurrencies
           </h2>
           <input
             type="text"
             placeholder="Search Cryptocurrency..."
             onChange={(e) => setSearch(e.target.value)}
-            className="border border-gray-400 p-2 rounded-xl placeholder:text-sm"
+            className="w-40 p-2 border border-gray-400 md:w-52 rounded-xl placeholder:text-sm"
           />
         </div>
 
@@ -36,7 +36,7 @@ const Cryptocurrencies = ({ data }) => {
           {crypto.length ? (
             <Crypocurrencies data={crypto} />
           ) : (
-            <div className="text-center text-gray-500 text-3xl font-bold">
+            <div className="text-3xl font-bold text-center text-gray-500">
               No Search Result
             </div>
           )}

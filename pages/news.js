@@ -30,8 +30,8 @@ const News = (data) => {
         <title>News</title>
       </Head>
       <div className="space-y-10">
-        <div className="flex justify-between h-10 items-center">
-          <h2 className="m-5 text-2xl font-bold text-gray-800">News</h2>
+        <div className="flex items-center justify-between h-10">
+          <h2 className="text-2xl font-bold text-gray-800 md:m-5">News</h2>
           <select onChange={onOptionChangeHandler} className="p-2 rounded-md">
             <option value="">Please Select Cryptocurrency</option>
             <option value="Bitcoin">Bitcoin</option>

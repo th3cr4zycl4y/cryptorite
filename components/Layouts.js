@@ -18,7 +18,7 @@ const Layouts = ({ children }) => {
 
   return (
     <div className="flex w-screen">
-      <header className="sticky top-0 flex flex-col items-center h-screen px-3 py-5 space-y-5 font-bold bg-blue-900">
+      <header className="sticky top-0 flex flex-col items-center px-3 py-5 space-y-5 font-bold bg-blue-900 h-[100vh]">
         <div className="flex items-center space-x-4">
           <Image src={"/logo.png"} width={40} height={40} alt={"Logo"} />
           {toggle && <h2 className="text-xl text-white">CryptoRite</h2>}
@@ -57,8 +57,8 @@ const Layouts = ({ children }) => {
           {toggle ? <BsArrowLeft /> : <BsArrowRight />}
         </div>
       </header>
-      <div className=" w-full">
-        <main className="min-h-[84vh] h-fit m-5">{children}</main>
+      <div className="w-full ">
+        <main className="min-h-[84vh] h-fit md:m-5 m-1">{children}</main>
         <footer className="flex h-fit w-[100%] p-1 items-center flex-col md:flex-row text-white bg-blue-900 lg:justify-between justify-center bottom-0">
           <div className="flex items-center m-3 space-x-4">
             <Image src={"/logo.png"} width={40} height={40} alt={"Logo"} />
@@ -75,12 +75,7 @@ const Layouts = ({ children }) => {
             >
               Cryptocurrencies
             </a>
-            <a
-              onClick={() => handleRoute("/exchanges")}
-              className="cursor-pointer"
-            >
-              Exchanges
-            </a>
+
             <a onClick={() => handleRoute("/news")} className="cursor-pointer">
               News
             </a>
