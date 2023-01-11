@@ -19,7 +19,7 @@ const LineChart = ({ currentPrice, coinName, time, history }) => {
     url: `https://coinranking1.p.rapidapi.com/coin/${id}/history`,
     params: { referenceCurrencyUuid: "yhjMzLPhuIDl", timePeriod: `${time}` },
     headers: {
-      "X-RapidAPI-Key": process.env.NEXT_PRIVATE_RAPIDAPI_KEY,
+      "X-RapidAPI-Key": "403d6ba8dbmsha90660036e25ddep1a8170jsn1417881a5e0f",
       "X-RapidAPI-Host": "coinranking1.p.rapidapi.com",
     },
   };
@@ -75,11 +75,11 @@ const LineChart = ({ currentPrice, coinName, time, history }) => {
 
   return (
     <div className="mx-5">
-      <div className="mx-auto md:flex text-center justify-between">
+      <div className="justify-between mx-auto text-center md:flex">
         <h2 className="text-2xl font-bold text-blue-500">
           {coinName} Price Chart
         </h2>
-        <div className="flex font-bold items-center justify-center space-x-5 ">
+        <div className="flex items-center justify-center space-x-5 font-bold ">
           <p
             className={
               coinHistory?.data?.change < 0 ? "text-red-600" : "text-green-600"
