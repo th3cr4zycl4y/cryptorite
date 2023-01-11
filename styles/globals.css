@@ -1,26 +1,22 @@
-html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-* {
-  box-sizing: border-box;
-}
-
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
+@layer utilities {
+  .desc a {
+    @apply text-blue-600 underline;
   }
-  body {
-    color: white;
-    background: black;
+  .nav {
+    @apply flex p-2 space-x-2 text-xl text-gray-300 cursor-pointer;
+  }
+  .text {
+    @apply text-sm font-bold text-gray-500 md:text-xl;
+  }
+  .num {
+    @apply text-lg font-bold text-gray-800 md:text-2xl;
+  }
+
+  .desc h3 {
+    @apply text-lg font-bold my-3 text-blue-500;
   }
 }
