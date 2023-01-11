@@ -1,4 +1,3 @@
-// @ts-check
 import Head from "next/head";
 import React, { useEffect, useState } from "react";
 import NewsComp from "../components/News";
@@ -40,7 +39,7 @@ const News = (data) => {
         </div>
 
         <div>
-          <NewsComp data={search || data} />
+          <NewsComp data={search || data.data} />
         </div>
       </div>
     </div>
@@ -50,13 +49,12 @@ const News = (data) => {
 export default News;
 
 export async function getServerSideProps() {
-  const options = `https://newsapi.org/v2/everything?q=Cryptocurrency&from=2023-01-08&sortBy=popularity&apiKey=${process.env.NEXT_PUBLIC_API_KEY}`;
+  const newsUrl = `http://newsapi.org/v2/everything?q=Bitcoin&from=2023-01-08&sortBy=popularity&apiKey=${process.env.NEXT_PUBLIC_API_KEY}`;
 
-  const data = await fetch(options).then(function (response) {
+  const news = await fetch(newsUrl).then(function (response) {
     return response.json();
   });
-
   return {
-    props: { data: data.articles },
+    props: { data: news.articles },
   };
 }
