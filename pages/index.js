@@ -15,13 +15,13 @@ export default function Home({ data, news }) {
           name="description"
           content="Cryptorite | View lastest Crypto news, prize and many more"
         />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/logo.png" />
       </Head>
       <div className="space-y-4">
-        <h2 className=" md:text-3xl text-2xl font-bold text-gray-800">
+        <h2 className="text-2xl font-bold text-gray-800 md:text-3xl">
           Global Crypto Stats
         </h2>
-        <div className="grid grid-flow-col grid-rows-3 gap-3 p-5 mx-auto bg-gray-200 shadow-lg md:shadow-xl md:p-10 rounded-xl md:gap-10 place-content-center md:grid-rows-2 w-fit px-6 py-2 font-sans font-semibold text-white transition ">
+        <div className="grid grid-flow-col grid-rows-3 gap-3 p-5 px-6 py-2 mx-auto font-sans font-semibold text-white transition bg-gray-200 shadow-lg md:shadow-xl md:p-10 rounded-xl md:gap-10 place-content-center md:grid-rows-2 w-fit ">
           <div>
             <h3 className="text">Total Cryptocurrencies</h3>
             <h4 className="num">{millify(stats.total)}</h4>
@@ -49,12 +49,12 @@ export default function Home({ data, news }) {
         </div>
         {/* top 10 Crypocurrencies */}
         <div>
-          <div className="flex justify-between items-center my-5">
-            <h2 className="md:text-2xl text-xl font-bold text-gray-800">
+          <div className="flex items-center justify-between my-5">
+            <h2 className="text-xl font-bold text-gray-800 md:text-2xl">
               Top 10 Cryptocurrencies
             </h2>
             <Link href="/cryptocurrencies">
-              <p className="cursor-pointer text-blue-500 text-lg font-bold">
+              <p className="text-lg font-bold text-blue-500 cursor-pointer">
                 See More...
               </p>
             </Link>
@@ -62,12 +62,12 @@ export default function Home({ data, news }) {
           <Crypocurrencies data={data.coins} slice={11} />
         </div>
         <div>
-          <div className="flex justify-between items-center my-5">
-            <h2 className="md:text-2xl text-xl font-bold text-gray-800">
+          <div className="flex items-center justify-between my-5">
+            <h2 className="text-xl font-bold text-gray-800 md:text-2xl">
               Top News
             </h2>
             <Link href="/news">
-              <p className="cursor-pointer text-blue-500 text-lg font-bold">
+              <p className="text-lg font-bold text-blue-500 cursor-pointer">
                 See More...
               </p>
             </Link>
