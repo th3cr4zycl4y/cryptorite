@@ -18,7 +18,7 @@ const Layouts = ({ children }) => {
 
   return (
     <div className="flex w-screen">
-      <header className="sticky top-0 flex flex-col items-center px-3 py-5 space-y-5 font-bold bg-blue-900 h-[100vh]">
+      <header className="sticky top-0 flex flex-col items-center md:px-3 px-2 py-3 space-y-10 font-bold bg-blue-900 h-[100vh]">
         <div className="flex items-center space-x-4">
           <Image src={"/logo.png"} width={40} height={40} alt={"Logo"} />
           {toggle && <h2 className="text-xl text-white">CryptoRite</h2>}

@@ -1,6 +1,7 @@
 import Head from "next/head";
 import React, { useEffect, useState } from "react";
 import NewsComp from "../components/News";
+import axios from "axios";
 
 const News = (data) => {
   const [search, setSearch] = useState([]);
@@ -11,16 +12,38 @@ const News = (data) => {
   };
 
   useEffect(() => {
-    const options = `http://newsapi.org/v2/everything?q=${option}&from=2023-01-08&sortBy=popularity&apiKey=${process.env.NEXT_PUBLIC_API_KEY}`;
+    const fetchData = async () => {
+      const newsUrl = {
+        method: "GET",
+        url: "https://bing-news-search1.p.rapidapi.com/news/search",
+        params: {
+          q: `${option}`,
+          safeSearch: "Off",
+          textFormat: "Raw",
+          count: 100,
+          originalImg: "true",
+          freshness: "Day",
+        },
+        headers: {
+          "X-BingApis-SDK": "true",
+          "X-RapidAPI-Key":
+            "403d6ba8dbmsha90660036e25ddep1a8170jsn1417881a5e0f",
+          "X-RapidAPI-Host": "bing-news-search1.p.rapidapi.com",
+        },
+      };
 
-    const fetchData = async (options) => {
-      const data = await fetch(options).then(function (response) {
-        return response.json();
-      });
+      const data = await axios
+        .request(newsUrl)
+        .then(function (response) {
+          return response.data.value;
+        })
+        .catch(function (error) {
+          console.error(error);
+        });
 
-      setSearch(data.articles);
+      setSearch(data);
     };
-    fetchData(options);
+    fetchData();
   }, [option]);
 
   return (
@@ -34,7 +57,15 @@ const News = (data) => {
           <select onChange={onOptionChangeHandler} className="p-2 rounded-md">
             <option value="">Please Select Cryptocurrency</option>
             <option value="Bitcoin">Bitcoin</option>
-            <option value="ETH">ETH</option>
+            <option value="Ethereum">Ethereum</option>
+            <option value="Tether ">Tether </option>
+            <option value="Binance Coin">Binance Coin</option>
+            <option value="U.S. Dollar Coin">U.S. Dollar Coin</option>
+            <option value="XRP">XRP</option>
+            <option value="Binance USD">Binance USD</option>
+            <option value="Cardano">Cardano</option>
+            <option value="DODGEcoin">DODGE</option>
+            <option value="Polygon">Polygon</option>
           </select>
         </div>
 
@@ -49,12 +80,34 @@ const News = (data) => {
 export default News;
 
 export async function getServerSideProps() {
-  const newsUrl = `http://newsapi.org/v2/everything?q=Bitcoin&from=2023-01-08&sortBy=popularity&apiKey=${process.env.NEXT_PUBLIC_API_KEY}`;
+  const newsUrl = {
+    method: "GET",
+    url: "https://bing-news-search1.p.rapidapi.com/news/search",
+    params: {
+      q: `cryptocurrency`,
+      safeSearch: "Off",
+      textFormat: "Raw",
+      count: 100,
+      originalImg: "true",
+      freshness: "Day",
+    },
+    headers: {
+      "X-BingApis-SDK": "true",
+      "X-RapidAPI-Key": "403d6ba8dbmsha90660036e25ddep1a8170jsn1417881a5e0f",
+      "X-RapidAPI-Host": "bing-news-search1.p.rapidapi.com",
+    },
+  };
 
-  const news = await fetch(newsUrl).then(function (response) {
-    return response.json();
-  });
+  const data = await axios
+    .request(newsUrl)
+    .then(function (response) {
+      return response.data.value;
+    })
+    .catch(function (error) {
+      console.error(error);
+    });
+
   return {
-    props: { data: news.articles },
+    props: { data },
   };
 }

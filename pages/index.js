@@ -72,7 +72,7 @@ export default function Home({ data, news }) {
               </p>
             </Link>
           </div>
-          <NewsComp data={news.articles} slice={11} />
+          <NewsComp data={news} slice={11} />
         </div>
       </div>
     </div>
@@ -107,12 +107,32 @@ export async function getServerSideProps() {
       console.error(error);
     });
 
-  const newsUrl =
-    "https://newsapi.org/v2/everything?q=DOGE&from=2023-01-08&sortBy=popularity&apiKey=d5d5b7cc40af4d8082b9c95b704dedf8";
+  const newsUrl = {
+    method: "GET",
+    url: "https://bing-news-search1.p.rapidapi.com/news/search",
+    params: {
+      q: `Bitcoin`,
+      safeSearch: "Off",
+      textFormat: "Raw",
+      count: 100,
+      originalImg: "true",
+      freshness: "Day",
+    },
+    headers: {
+      "X-BingApis-SDK": "true",
+      "X-RapidAPI-Key": "403d6ba8dbmsha90660036e25ddep1a8170jsn1417881a5e0f",
+      "X-RapidAPI-Host": "bing-news-search1.p.rapidapi.com",
+    },
+  };
 
-  const news = await fetch(newsUrl).then(function (response) {
-    return response.json();
-  });
+  const news = await axios
+    .request(newsUrl)
+    .then(function (response) {
+      return response.data.value;
+    })
+    .catch(function (error) {
+      console.error(error);
+    });
 
   return { props: { data, news } };
 }
