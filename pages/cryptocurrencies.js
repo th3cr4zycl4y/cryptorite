@@ -62,7 +62,7 @@ export async function getServerSideProps() {
       offset: "0",
     },
     headers: {
-      "X-RapidAPI-Key": process.env.NEXT_PUBLIC_RAPIDAPI_KEY,
+      "X-RapidAPI-Key": process.env.NEXT_PRIVATE_RAPIDAPI_KEY,
       "X-RapidAPI-Host": "coinranking1.p.rapidapi.com",
     },
   };

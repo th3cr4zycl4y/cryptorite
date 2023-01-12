@@ -193,7 +193,7 @@ export async function getServerSideProps(context) {
     url: `https://coinranking1.p.rapidapi.com/coin/${id}`,
     params: { referenceCurrencyUuid: "yhjMzLPhuIDl", timePeriod: "24h" },
     headers: {
-      "X-RapidAPI-Key": process.env.NEXT_PUBLIC_RAPIDAPI_KEY,
+      "X-RapidAPI-Key": process.env.NEXT_PRIVATE_RAPIDAPI_KEY,
       "X-RapidAPI-Host": "coinranking1.p.rapidapi.com",
     },
   };
@@ -215,7 +215,7 @@ export async function getServerSideProps(context) {
       timePeriod: "24h",
     },
     headers: {
-      "X-RapidAPI-Key": process.env.NEXT_PUBLIC_RAPIDAPI_KEY,
+      "X-RapidAPI-Key": process.env.NEXT_PRIVATE_RAPIDAPI_KEY,
       "X-RapidAPI-Host": "coinranking1.p.rapidapi.com",
     },
   };
