@@ -93,7 +93,7 @@ export async function getServerSideProps() {
       offset: "0",
     },
     headers: {
-      "X-RapidAPI-Key": process.env.NEXT_PRIVATE_RAPIDAPI_KEY,
+      "X-RapidAPI-Key": process.env.NEXT_PUBLIC_RAPIDAPI_KEY,
       "X-RapidAPI-Host": "coinranking1.p.rapidapi.com",
     },
   };
@@ -120,7 +120,7 @@ export async function getServerSideProps() {
     },
     headers: {
       "X-BingApis-SDK": "true",
-      "X-RapidAPI-Key": "403d6ba8dbmsha90660036e25ddep1a8170jsn1417881a5e0f",
+      "X-RapidAPI-Key": process.env.NEXT_PUBLIC_RAPIDAPI_KEY,
       "X-RapidAPI-Host": "bing-news-search1.p.rapidapi.com",
     },
   };
